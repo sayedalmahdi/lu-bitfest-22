@@ -1,5 +1,7 @@
 <script>
-    import Admin from "./admin.svelte";
+    import { text } from "svelte/internal";
+import Button from "../../lib/button.svelte";
+import Admin from "./admin.svelte";
     import User from "./user.svelte";
     let activeTabValue = 1;
 
@@ -29,9 +31,7 @@
     </div>
     <div class="flex items-center justify-evenly">
         {#each items as item}
-        <button on:click={handleClick(item.value)} class="group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            {item.label}
-        </button>
+        <Button onClick={handleClick(item.value)} text={item.label} />
         {/each}
     </div>
         {#each items as item}
