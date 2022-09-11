@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/lu-bitfest-22.iml" filepath="$PROJECT_DIR$/.idea/lu-bitfest-22.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FIndMyBus.iml" filepath="$PROJECT_DIR$/.idea/modules/FIndMyBus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FIndMyBus.app.unitTest.iml" />
     </modules>
   </component>
 </project>
