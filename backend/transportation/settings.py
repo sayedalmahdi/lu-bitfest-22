@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-5g!8kcjzxxupmiyft9+0b80=)1c8*vn5x=&3%eup92_@6@_qgl
 DEBUG = True
 
 ALLOWED_HOSTS=['*']
-CSRF_TRUSTED_ORIGINS = ['https://9fea-163-47-36-254.ap.ngrok.io', 'http://127.0.0.1']
-
+CSRF_TRUSTED_ORIGINS = ['https://1052-163-47-36-254.ap.ngrok.io', 'http://127.0.0.1']
+CORS_ALLOWED_ORIGINS = ['https://1052-163-47-36-254.ap.ngrok.io', 'http://127.0.0.1']
 
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -61,11 +61,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'accounts',
+    'transport',
+
     'rest_framework',
     'rest_framework.authtoken',
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -74,11 +76,11 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
