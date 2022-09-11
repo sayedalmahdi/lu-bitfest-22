@@ -1,5 +1,5 @@
 <script>
-    import Button from "../../../lib/button.svelte";
+	import Button from '$lib/button.svelte';
     import { writable } from 'svelte/store';
     import Modal from 'svelte-simple-modal';
     import Update from './update.svelte';

@@ -1,7 +1,7 @@
 <script>
-    import Input from "../../../lib/input.svelte";
-    import Selection from "../../../lib/selection.svelte";
-    import Button from "../../../lib/button.svelte";
+	import Button from '$lib/button.svelte';
+    import Selection from "$lib/selection.svelte";
+    import Input from '$lib/input.svelte';
 
     const items = [
         'bus-1',

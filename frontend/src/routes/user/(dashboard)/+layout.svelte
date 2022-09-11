@@ -10,11 +10,13 @@
             Mufassir-Chowdhury
         </div>
         <div class="font-light text-gray-600">
-            Transport Department Official
+            Student
         </div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-6">
-            Edit Profile
-        </button>
+        <a href="/edit/Student">
+            <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-6">
+                Edit Profile
+            </button>
+        </a>
     </div>
     <div class="w-3/4 border-l-2">
         <div class="w-full flex border-b-2">
@@ -24,14 +26,11 @@
             <a href="/route">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Routes</div>
             </a>
-            <a href="/stoppage">
-                <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Stoppages</div>
+            <a href="/request">
+                <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Request</div>
             </a>
-            <a href="/demand">
-                <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Demands</div>
-            </a>
-            <a href="/suggestion">
-                <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Suggestions</div>
+            <a href="/location">
+                <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Locations</div>
             </a>
         </div>
         <slot/>
