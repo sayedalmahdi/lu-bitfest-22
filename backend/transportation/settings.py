@@ -30,6 +30,8 @@ CSRF_TRUSTED_ORIGINS = ['https://1052-163-47-36-254.ap.ngrok.io', 'http://127.0.
 CORS_ALLOWED_ORIGINS = ['https://1052-163-47-36-254.ap.ngrok.io', 'http://127.0.0.1']
 
 
+EMAIL_REQUIRED = False
+
 AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
