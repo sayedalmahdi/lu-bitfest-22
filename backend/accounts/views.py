@@ -33,6 +33,18 @@ class UserDetailView(APIView):
             official = Official.objects.get(official=user)
             serializer = OfficialSerializer(official)
 
+        elif usertype == 'student':
+            student = Student.objects.get(student=user)
+            serializer = StudentSerializer(student)
+
+        elif usertype == 'teacher':
+            teacher = Teacher.objects.get(teacher=user)
+            serializer = TeacherSerializer(teacher)
+        
+        elif usertype == 'staff':
+            staff = Staff.objects.get(staff=user)
+            serializer = StaffSerializer(staff)
+
         return Response(serializer.data)
 
 class OfficialListView(generics.ListAPIView):
