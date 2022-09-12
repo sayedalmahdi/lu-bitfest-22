@@ -39,21 +39,27 @@ class OfficialSerializer(serializers.ModelSerializer):
 
 class StudentRegisterSerializer(RegisterSerializer):
     student = serializers.RelatedField(many=False, read_only=True)
+    id = serializers.CharField(max_length=100)
     name = serializers.CharField(max_length=100)
     contact_number = serializers.CharField(max_length=100)
+    stoppage = serializers.CharField(max_length=100)
+    is_active = serializers.BooleanField(default=True)
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'name', 'contact_number', 'student')
+        fields = ('id', 'username', 'password', 'name', 'contact_number', 'student', 'stoppage', 'is_active')
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_cleaned_data(self):
         data = super(StudentRegisterSerializer, self).get_cleaned_data()
         extra_data = {
+            'id': self.validated_data.get('id', ''),
             'name': self.validated_data.get('name', ''),
             'contact_number': self.validated_data.get('contact_number', ''),
             'batch_number': self.validated_data.get('batch_number', ''),
-            'section': self.validated_data.get('section', '')
+            'section': self.validated_data.get('section', ''),
+            'stoppage': self.validated_data.get('stoppage', ''),
+            'is_active': self.validated_data.get('is_active', '')
         }
         data.update(extra_data)
         return data
@@ -62,7 +68,7 @@ class StudentRegisterSerializer(RegisterSerializer):
         user = super(StudentRegisterSerializer, self).save(request)
         user.usertype = 'student'
         user.save()
-        student = Student.objects.create(student=user, name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''), batch_number=self.validated_data.get('batch_number', ''), section=self.validated_data.get('section', ''))
+        student = Student.objects.create(student=user, id=self.validated_data.get('id', ''), name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''), batch_number=self.validated_data.get('batch_number', ''), section=self.validated_data.get('section', ''), stoppage=self.validated_data.get('stoppage', ''), is_active=self.validated_data.get('is_active', ''))
         student.save()
         return user
 
@@ -72,29 +78,32 @@ class StudentSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Student
-        fields = ('id', 'username', 'name', 'contact_number', 'batch_number', 'section', 'usertype')
+        fields = ('id', 'username', 'name', 'contact_number', 'batch_number', 'section', 'usertype', 'stoppage', 'is_active')
 
 class TeacherRegisterSerializer(RegisterSerializer):
     teacher = serializers.RelatedField(many=False, read_only=True)
+    id = serializers.CharField(max_length=100)
     name = serializers.CharField(max_length=100)
     contact_number = serializers.CharField(max_length=100)
-    department = serializers.CharField(max_length=100)
-    codename = serializers.CharField(max_length=100)
-    designation = serializers.CharField(max_length=100)
+    stoppage = serializers.CharField(max_length=100)
+    is_active = serializers.BooleanField(default=True)
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'name', 'contact_number', 'teacher')
+        fields = ('id', 'username', 'password', 'name', 'contact_number', 'teacher', 'stoppage', 'is_active')
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_cleaned_data(self):
         data = super(TeacherRegisterSerializer, self).get_cleaned_data()
         extra_data = {
+            'id': self.validated_data.get('id', ''),
             'name': self.validated_data.get('name', ''),
             'contact_number': self.validated_data.get('contact_number', ''),
             'department': self.validated_data.get('department', ''),
             'codename': self.validated_data.get('codename', ''),
-            'designation': self.validated_data.get('designation', '')
+            'designation': self.validated_data.get('designation', ''),
+            'stoppage': self.validated_data.get('stoppage', ''),
+            'is_active': self.validated_data.get('is_active', '')
         }
         data.update(extra_data)
         return data
@@ -103,7 +112,7 @@ class TeacherRegisterSerializer(RegisterSerializer):
         user = super(TeacherRegisterSerializer, self).save(request)
         user.usertype = 'teacher'
         user.save()
-        teacher = Teacher.objects.create(teacher=user, name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''), department=self.validated_data.get('department', ''), codename=self.validated_data.get('codename', ''), designation=self.validated_data.get('designation', ''))
+        teacher = Teacher.objects.create(teacher=user, id=self.validated_data.get('id', ''), name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''), department=self.validated_data.get('department', ''), codename=self.validated_data.get('codename', ''), designation=self.validated_data.get('designation', ''), stoppage=self.validated_data.get('stoppage', ''), is_active=self.validated_data.get('is_active', ''))
         teacher.save()
         return user
 
@@ -113,23 +122,29 @@ class TeacherSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Teacher
-        fields = ('id', 'username', 'name', 'contact_number', 'department', 'codename', 'designation', 'usertype')
+        fields = ('id', 'username', 'name', 'contact_number', 'department', 'codename', 'designation', 'usertype', 'stoppage', 'is_active')
 
 class StaffRegisterSerializer(RegisterSerializer):
     staff = serializers.RelatedField(many=False, read_only=True)
+    id = serializers.CharField(max_length=100)
     name = serializers.CharField(max_length=100)
     contact_number = serializers.CharField(max_length=100)
+    stoppage = serializers.CharField(max_length=100)
+    is_active = serializers.BooleanField(default=True)
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'name', 'contact_number', 'staff')
+        fields = ('id', 'username', 'password', 'name', 'contact_number', 'staff', 'stoppage', 'is_active')
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_cleaned_data(self):
         data = super(StaffRegisterSerializer, self).get_cleaned_data()
         extra_data = {
+            'id': self.validated_data.get('id', ''),
             'name': self.validated_data.get('name', ''),
-            'contact_number': self.validated_data.get('contact_number', '')
+            'contact_number': self.validated_data.get('contact_number', ''),
+            'stoppage': self.validated_data.get('stoppage', ''),
+            'is_active': self.validated_data.get('is_active', '')
         }
         data.update(extra_data)
         return data
@@ -138,7 +153,7 @@ class StaffRegisterSerializer(RegisterSerializer):
         user = super(StaffRegisterSerializer, self).save(request)
         user.usertype = 'staff'
         user.save()
-        staff = Staff.objects.create(staff=user, name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''))
+        staff = Staff.objects.create(staff=user, id=self.validated_data.get('id', ''), name=self.validated_data.get('name', ''), contact_number=self.validated_data.get('contact_number', ''), stoppage=self.validated_data.get('stoppage', ''), is_active=self.validated_data.get('is_active', ''))
         staff.save()
         return user
 
