@@ -1,4 +1,5 @@
 <script>
+	import { goto } from '$app/navigation';
 	import Button from './../../lib/button.svelte';
 import Input from "../../lib/input.svelte";
   let username = null;
@@ -7,30 +8,58 @@ import Input from "../../lib/input.svelte";
   let result2 = null
 
   async function login(){
-		const response = await fetch('https://9fea-163-47-36-254.ap.ngrok.io/auth/login/', {
-			method: 'POST',
-      headers: {
-				'Accept': 'application/json',
-        "Content-Type": "application/x-www-form-urlencoded"
-			},
-      body: `username=${username}&password=${password}`
-      // body: `username=abcdef&password=okay12no`
-		})
-    const json = await response.json()
-    console.log(json.key)
-    result = JSON.stringify(json)
-    console.log(result)
-    const res = await fetch('https://9fea-163-47-36-254.ap.ngrok.io/api/accounts/user/', {
-			method: 'GET',
-      headers: {
-        'Authorization': `token ${json.key}`,
-        'Content-Type': 'application/json'
-			},
-		})
+		// const response = await fetch('https://1052-163-47-36-254.ap.ngrok.io/auth/login/', {
+		// 	method: 'POST',
+    //   headers: {
+		// 		'Accept': 'application/json',
+    //     "Content-Type": "application/x-www-form-urlencoded"
+		// 	},
+    //   body: `username=${username}&password=${password}`
+    //   // body: `username=abcdef&password=okay12no`
+		// })
+    // const json = await response.json()
+    // console.log(json.key)
+    // result = JSON.stringify(json)
+    // console.log(result)
+    // const res = await fetch('https://1052-163-47-36-254.ap.ngrok.io/api/accounts/user/', {
+		// 	method: 'GET',
+    //   headers: {
+    //     'Authorization': `token ${json.key}`,
+    //     'Content-Type': 'application/json'
+		// 	},
+    //   redirect: 'follow'
+		// })
+    // var myHeaders = new Headers();
+    // myHeaders.append("Authorization", "Token ac52b9218a508168a10433783f668bfd3d2c8502");
+
+    // var requestOptions = {
+    //   method: 'GET',
+    //   headers: myHeaders,
+    //   redirect: 'follow'
+    // };
+
+    // fetch("https://1052-163-47-36-254.ap.ngrok.io/api/accounts/user/", requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
+    // window.location.href = "/login";
     // json = await response.json()
     // result2 = JSON.stringify(json)
     // console.log(result2)
+    const response = await fetch('https://1052-163-47-36-254.ap.ngrok.io/api/transport/bus/', {
+			method: 'GET',
+      headers: {
+				'Accept': 'application/json',
+			},
+		})
+    const json = await response.json()
+    result = JSON.stringify(json)
+    console.log(result)
   }
+  // const fetchImage = (async () => {
+  //   const response = await fetch('https://1052-163-47-36-254.ap.ngrok.io/api/transport/bus/');
+  //   return await response.json();
+  // })()
 </script>
 <div class="container bg-slate-600 flex flex-row p-16">
     <div class="w-1/2 flex bg-slate-500 items-center justify-center">

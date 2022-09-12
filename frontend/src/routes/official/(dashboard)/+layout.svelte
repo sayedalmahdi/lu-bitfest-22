@@ -20,19 +20,19 @@
     </div>
     <div class="w-3/4 border-l-2">
         <div class="w-full flex border-b-2">
-            <a href="/bus">
+            <a href="/official/bus">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Buses</div>
             </a>
-            <a href="/route">
+            <a href="/official/route">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Routes</div>
             </a>
-            <a href="/stoppage">
+            <a href="/official/stoppage">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Stoppages</div>
             </a>
-            <a href="/demand">
+            <a href="/official/demand">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Demands</div>
             </a>
-            <a href="/suggestion">
+            <a href="/official/suggestion">
                 <div class="my-2 py-1 px-3 hover:bg-gray-200 rounded-md">Suggestions</div>
             </a>
         </div>

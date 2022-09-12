@@ -3,6 +3,7 @@
     import { writable } from 'svelte/store';
     import Modal from 'svelte-simple-modal';
     import Update from './update.svelte';
+    // import Update from './update.svelte';
     import Add from "./add.svelte";
     const updateModal = writable(null);
     const addModal = writable(null);
